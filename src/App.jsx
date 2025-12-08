@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import Layout from './components/Layout'
 import Dashboard from './components/Dashboard'
 import Contacts from './components/Contacts'
@@ -92,7 +92,7 @@ function App() {
         deleteContact,
       }}
     >
-      <Router basename={import.meta.env.PROD ? "/LeadZone" : ""}>
+      <Router>
         <Layout>
           <Routes>
             <Route path="/" element={<Dashboard />} />
