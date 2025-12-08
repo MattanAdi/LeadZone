@@ -1,0 +1,153 @@
+.contact-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid var(--border-color);
+}
+
+.contact-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.contact-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+}
+
+.contact-avatar-large {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.contact-card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.icon-btn:hover {
+  background-color: #f1f5f9;
+}
+
+.icon-btn-danger:hover {
+  background-color: #fee2e2;
+}
+
+.contact-card-body {
+  flex: 1;
+}
+
+.contact-name {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.contact-company {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+}
+
+.contact-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.contact-detail {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.detail-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.detail-text {
+  color: var(--text-secondary);
+  word-break: break-word;
+}
+
+.contact-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.contact-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--success);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-lead {
+  background-color: #fef3c7;
+  color: #92400e;
+}
+
+.status-customer {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+@media (max-width: 640px) {
+  .contact-card {
+    padding: 1.25rem;
+  }
+
+  .contact-avatar-large {
+    width: 56px;
+    height: 56px;
+    font-size: 1.25rem;
+  }
+
+  .contact-name {
+    font-size: 1.125rem;
+  }
+}
+
