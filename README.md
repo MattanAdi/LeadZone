@@ -96,6 +96,28 @@ LeadZone/
 - Safari (latest)
 - Edge (latest)
 
+## Deployment
+
+This project is configured for GitHub Pages deployment. The app will automatically deploy when you push to the `main` branch.
+
+### Enable GitHub Pages
+
+1. Go to your repository settings on GitHub
+2. Navigate to **Pages** in the left sidebar
+3. Under **Source**, select **GitHub Actions**
+4. The workflow will automatically build and deploy your app
+
+Your app will be available at: `https://mattanadi.github.io/LeadZone/`
+
+### Manual Deployment
+
+If you prefer to deploy manually:
+
+```bash
+npm run build
+# Then push the dist folder to the gh-pages branch
+```
+
 ## License
 
 MIT
