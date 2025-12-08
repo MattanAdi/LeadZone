@@ -1,0 +1,387 @@
+.contacts-page {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+
+.page-title-section h1 {
+  font-size: 2rem;
+  color: var(--neutral-900);
+  margin-bottom: 8px;
+}
+
+.page-title-section p {
+  color: var(--neutral-500);
+  font-size: 1rem;
+}
+
+/* Toolbar */
+.contacts-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  gap: 16px;
+}
+
+.search-filter-group {
+  display: flex;
+  gap: 12px;
+}
+
+.search-box {
+  position: relative;
+  width: 320px;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--neutral-400);
+}
+
+.search-box input {
+  width: 100%;
+  height: 44px;
+  padding: 0 40px 0 44px;
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  font-size: 0.9rem;
+  color: var(--neutral-900);
+  background: var(--white);
+  transition: all 0.2s ease;
+}
+
+.search-box input:focus {
+  outline: none;
+  border-color: var(--primary-400);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.clear-search {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  color: var(--neutral-400);
+  cursor: pointer;
+  padding: 4px;
+  border-radius: var(--radius-sm);
+}
+
+.clear-search:hover {
+  color: var(--neutral-600);
+  background: var(--neutral-100);
+}
+
+.filter-dropdown {
+  position: relative;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 44px;
+  padding: 0 16px;
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--neutral-700);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--neutral-300);
+  background: var(--neutral-50);
+}
+
+.filter-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  width: 180px;
+  background: var(--white);
+  border: 1px solid var(--neutral-200);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.2s ease;
+  z-index: 50;
+}
+
+.filter-dropdown:hover .filter-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.filter-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 10px 14px;
+  background: none;
+  border: none;
+  font-size: 0.875rem;
+  color: var(--neutral-700);
+  cursor: pointer;
+  transition: background 0.2s ease;
+  text-transform: capitalize;
+}
+
+.filter-option:hover {
+  background: var(--neutral-50);
+}
+
+.filter-option.active {
+  color: var(--primary-600);
+  background: var(--primary-50);
+}
+
+.results-info {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+}
+
+/* Table */
+.contacts-table-container {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--neutral-200);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.contacts-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.contacts-table th,
+.contacts-table td {
+  padding: 14px 20px;
+  text-align: left;
+}
+
+.contacts-table th {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--neutral-500);
+  background: var(--neutral-50);
+  border-bottom: 1px solid var(--neutral-200);
+}
+
+.contacts-table tr {
+  border-bottom: 1px solid var(--neutral-100);
+  transition: background 0.2s ease;
+}
+
+.contacts-table tbody tr:hover {
+  background: var(--neutral-50);
+}
+
+.contacts-table tbody tr.selected {
+  background: var(--primary-50);
+}
+
+.contacts-table tbody tr:last-child {
+  border-bottom: none;
+}
+
+/* Checkbox */
+.checkbox-col {
+  width: 50px;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.checkbox input {
+  display: none;
+}
+
+.checkmark {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--neutral-300);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.checkbox:hover .checkmark {
+  border-color: var(--primary-400);
+}
+
+.checkbox input:checked + .checkmark {
+  background: var(--primary-500);
+  border-color: var(--primary-500);
+}
+
+.checkbox input:checked + .checkmark::after {
+  content: '✓';
+  color: white;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Contact Cell */
+.contact-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.contact-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--primary-100);
+}
+
+.contact-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.contact-name {
+  font-weight: 600;
+  color: var(--neutral-900);
+}
+
+.contact-email,
+.contact-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--neutral-600);
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: color 0.2s ease;
+}
+
+.contact-email:hover,
+.contact-phone:hover {
+  color: var(--primary-500);
+}
+
+.contact-company {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--neutral-600);
+  font-size: 0.875rem;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+.status-customer {
+  background: var(--success-100);
+  color: var(--success-500);
+}
+
+.status-lead {
+  background: var(--primary-100);
+  color: var(--primary-600);
+}
+
+.status-prospect {
+  background: var(--warning-100);
+  color: #b45309;
+}
+
+.last-activity {
+  font-size: 0.875rem;
+  color: var(--neutral-500);
+}
+
+.action-menu-btn {
+  background: none;
+  border: none;
+  color: var(--neutral-400);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: var(--radius-sm);
+  transition: all 0.2s ease;
+}
+
+.action-menu-btn:hover {
+  background: var(--neutral-100);
+  color: var(--neutral-700);
+}
+
+.empty-state {
+  padding: 48px;
+  text-align: center;
+  color: var(--neutral-500);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .search-box {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    gap: 16px;
+    align-items: stretch;
+  }
+
+  .contacts-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-filter-group {
+    flex-direction: column;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .contacts-table-container {
+    overflow-x: auto;
+  }
+
+  .contacts-table {
+    min-width: 800px;
+  }
+}
+
