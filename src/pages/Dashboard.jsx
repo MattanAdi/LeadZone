@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { 
   TrendingUp, 
   TrendingDown,
@@ -123,7 +124,9 @@ function Dashboard() {
           <div className="card deals-card animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <div className="card-header">
               <h2>Recent Deals</h2>
-              <a href="/deals" className="view-all">View all deals <ArrowUpRight size={14} /></a>
+              <Link to="/deals" className="view-all">
+                View all deals <ArrowUpRight size={14} />
+              </Link>
             </div>
             <div className="deals-table">
               <table>
