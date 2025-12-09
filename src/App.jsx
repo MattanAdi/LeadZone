@@ -9,6 +9,8 @@ import Tasks from './pages/Tasks'
 import './App.css'
 
 function App() {
+  console.log('📱 App component rendering...')
+  
   return (
     <Router>
       <div className="app-layout">
