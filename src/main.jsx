@@ -41,6 +41,12 @@ window.addEventListener('unhandledrejection', (event) => {
 
 // Render the app
 try {
+  // Remove loading screen
+  const loadingScreen = rootElement.querySelector('.loading-screen')
+  if (loadingScreen) {
+    rootElement.innerHTML = ''
+  }
+  
   createRoot(rootElement).render(
     <StrictMode>
       <ErrorBoundary>
@@ -52,12 +58,15 @@ try {
 } catch (error) {
   console.error('❌ Failed to render app:', error)
   rootElement.innerHTML = `
-    <div style="padding: 2rem; font-family: sans-serif; text-align: center;">
-      <h1 style="color: #ef4444;">Failed to load application</h1>
-      <p>${error.message}</p>
-      <pre style="text-align: left; background: #f3f4f6; padding: 1rem; border-radius: 8px; margin-top: 1rem;">
+    <div style="padding: 2rem; font-family: sans-serif; text-align: center; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; background: #f9fafb;">
+      <h1 style="color: #ef4444; margin-bottom: 1rem;">Failed to load application</h1>
+      <p style="color: #6b7280; margin-bottom: 1rem;">${error.message}</p>
+      <pre style="text-align: left; background: #f3f4f6; padding: 1rem; border-radius: 8px; margin-top: 1rem; max-width: 800px; overflow: auto; font-size: 12px;">
         ${error.stack}
       </pre>
+      <button onclick="window.location.reload()" style="margin-top: 1rem; padding: 0.75rem 1.5rem; background: #2563eb; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+        Reload Page
+      </button>
     </div>
   `
 }
