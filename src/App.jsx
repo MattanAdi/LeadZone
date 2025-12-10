@@ -15,7 +15,7 @@ function App() {
   
   return (
     <ContactsProvider>
-      <Router>
+      <Router basename="/LeadZone">
         <div className="app-layout">
           <Sidebar />
           <div className="main-content">
