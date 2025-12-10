@@ -11,21 +11,14 @@ import {
   Check,
   X
 } from 'lucide-react'
+import { useContacts } from '../context/ContactsContext'
+import ContactForm from '../components/ContactForm'
 import './Contacts.css'
 
-const initialContacts = [
-  { id: 1, name: 'Sarah Johnson', email: 'sarah.j@techcorp.com', phone: '+1 (555) 123-4567', company: 'TechCorp Inc.', status: 'customer', avatar: 'Sarah', lastActivity: '2 hours ago' },
-  { id: 2, name: 'Michael Chen', email: 'mchen@globalsys.com', phone: '+1 (555) 234-5678', company: 'Global Systems', status: 'lead', avatar: 'Michael', lastActivity: '5 hours ago' },
-  { id: 3, name: 'Emily Davis', email: 'emily.davis@dataflow.io', phone: '+1 (555) 345-6789', company: 'DataFlow Ltd.', status: 'prospect', avatar: 'Emily', lastActivity: '1 day ago' },
-  { id: 4, name: 'James Wilson', email: 'jwilson@innovate.co', phone: '+1 (555) 456-7890', company: 'Innovate Co.', status: 'customer', avatar: 'James', lastActivity: '2 days ago' },
-  { id: 5, name: 'Lisa Anderson', email: 'l.anderson@nextgen.com', phone: '+1 (555) 567-8901', company: 'NextGen Labs', status: 'lead', avatar: 'Lisa', lastActivity: '3 days ago' },
-  { id: 6, name: 'Robert Taylor', email: 'rtaylor@synergy.io', phone: '+1 (555) 678-9012', company: 'Synergy Solutions', status: 'prospect', avatar: 'Robert', lastActivity: '4 days ago' },
-  { id: 7, name: 'Amanda Martinez', email: 'amanda.m@cloudtech.com', phone: '+1 (555) 789-0123', company: 'CloudTech Inc.', status: 'customer', avatar: 'Amanda', lastActivity: '5 days ago' },
-  { id: 8, name: 'David Brown', email: 'dbrown@futurewave.co', phone: '+1 (555) 890-1234', company: 'FutureWave', status: 'lead', avatar: 'David', lastActivity: '1 week ago' },
-]
-
 function Contacts() {
-  const [contacts, setContacts] = useState(initialContacts)
+  const { contacts } = useContacts()
+  const [showContactForm, setShowContactForm] = useState(false)
+  const [editingContact, setEditingContact] = useState(null)
   const [searchQuery, setSearchQuery] = useState('')
   const [selectedContacts, setSelectedContacts] = useState([])
   const [filterStatus, setFilterStatus] = useState('all')
@@ -61,7 +54,13 @@ function Contacts() {
           <h1>Contacts</h1>
           <p>Manage and organize your contacts</p>
         </div>
-        <button className="btn btn-primary">
+        <button 
+          className="btn btn-primary"
+          onClick={() => {
+            setEditingContact(null)
+            setShowContactForm(true)
+          }}
+        >
           <Plus size={18} />
           <span>Add Contact</span>
         </button>
@@ -194,6 +193,14 @@ function Contacts() {
           </div>
         )}
       </div>
+      <ContactForm 
+        isOpen={showContactForm} 
+        onClose={() => {
+          setShowContactForm(false)
+          setEditingContact(null)
+        }}
+        contact={editingContact}
+      />
     </div>
   )
 }
