@@ -5,6 +5,7 @@ import {
   Building2, 
   Handshake, 
   CheckSquare,
+  Calendar as CalendarIcon,
   Settings,
   HelpCircle,
   Zap,
@@ -18,6 +19,7 @@ const navItems = [
   { path: '/companies', icon: Building2, label: 'Companies' },
   { path: '/deals', icon: Handshake, label: 'Deals' },
   { path: '/tasks', icon: CheckSquare, label: 'Tasks' },
+  { path: '/calendar', icon: CalendarIcon, label: 'Calendar' },
 ]
 
 const bottomItems = [

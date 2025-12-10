@@ -7,6 +7,7 @@ import Contacts from './pages/Contacts'
 import Deals from './pages/Deals'
 import Companies from './pages/Companies'
 import Tasks from './pages/Tasks'
+import Calendar from './pages/Calendar'
 import './App.css'
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                 <Route path="/deals" element={<Deals />} />
                 <Route path="/companies" element={<Companies />} />
                 <Route path="/tasks" element={<Tasks />} />
+                <Route path="/calendar" element={<Calendar />} />
               </Routes>
             </main>
           </div>
