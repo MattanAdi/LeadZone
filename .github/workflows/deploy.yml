@@ -36,6 +36,25 @@ jobs:
         env:
           NODE_ENV: production
       
+      - name: Verify build output
+        run: |
+          echo "=== Build output contents ==="
+          ls -la dist/
+          echo ""
+          echo "=== Checking index.html for script tags ==="
+          grep -i "script" dist/index.html || echo "No script tags found"
+          echo ""
+          echo "=== Checking assets folder ==="
+          ls -la dist/assets/ || echo "No assets folder"
+          echo ""
+          echo "=== Verifying script path in index.html ==="
+          if grep -q "/LeadZone/assets/" dist/index.html; then
+            echo "✅ Correct production path found"
+          else
+            echo "❌ ERROR: Production path not found in index.html"
+            exit 1
+          fi
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
       
