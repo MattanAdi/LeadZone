@@ -62,6 +62,14 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: './dist'
+      
+      - name: Show deployment info
+        run: |
+          echo "📦 Artifact uploaded from: ./dist"
+          echo "📄 Files in dist:"
+          find dist -type f | head -10
+          echo ""
+          echo "✅ Build complete! The dist folder will be deployed to GitHub Pages."
 
   deploy:
     environment:
