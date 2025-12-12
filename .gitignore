@@ -22,3 +22,15 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Secrets and tokens
+.env
+.env.local
+*.token
+*secret*
+*password*
+ghp_*
+ghs_*
+gho_*
+ghu_*
+ghr_*
